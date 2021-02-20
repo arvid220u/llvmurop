@@ -2,7 +2,7 @@ after much trial and error, it seems like the following steps are sufficient for
 
 1. `git clone git@github.com:opencilk/opencilk-project`
 2. `cd opencilk-project`
-3. `https://github.com/OpenCilk/cheetah`
+3. `git clone git@github.com:OpenCilk/cheetah`
 4. `mkdir build`
 5. `cd build`
 6. `brew install ninja`
