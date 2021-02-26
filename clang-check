@@ -1,1 +1,3 @@
-/Users/arvidlunnemark/code/opencilk-project/build/bin/clang-check
+#!/usr/bin/env bash
+
+~/code/opencilk-project/build/bin/clang-check $@
