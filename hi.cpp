@@ -4,11 +4,12 @@ using namespace std;
 
 int functionwithuniquename(vector<int> v) {
     int sum = 0;
-    /*for (auto x : v) {
-        sum += x;
-    }*/
-    cilk_for (int i = 0; i < 2; i++) {
-        sum += v[i];
+    cilk_for (int i = 0; i < 10; i++) {
+        if (sum % 2 == 0) {
+            sum /= 2;
+        } else {
+            sum = 3*sum + 1;
+        }
     }
     return sum;
 }
