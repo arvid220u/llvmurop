@@ -1,22 +1,26 @@
 using namespace std;
 #include <vector>
 #include <cilk/cilk.h>
+#include <iostream>
 
 int functionwithuniquename(vector<int> v) {
-    int sum = 0;
-    cilk_for (int i = 0; i < 10; i++) {
-        if (sum % 2 == 0) {
-            sum /= 2;
-        } else {
-            sum = 3*sum + 1;
-        }
+    /*cilk_for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << endl;
+    }*/
+    cilk_for (int x : v) {
+        cout << x << endl;
     }
-    return sum;
+    return 0;
 }
 
 int main()
 {
-    int x = functionwithuniquename({1,2});
+    int N = 64;
+    vector<int> v(N);
+    for (int i = 0; i < N; i++) {
+        v[i] = i;
+    }
+    int x = functionwithuniquename(v);
 
     return 0;
 }

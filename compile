@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd ..
+./infrastructure/tools/build `pwd`/opencilk-project `pwd`/opencilk-project/build 16
