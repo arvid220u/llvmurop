@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd ../opencilk-project/build
+cmake --build . -- -j 20
