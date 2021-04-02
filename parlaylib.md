@@ -1,6 +1,8 @@
 
 
-`mkdir build/Release && cd build/Release`
-`../../../cmake-3.20.0-linux-x86_64/bin/cmake -DCMAKE_BUILD_TYPE=Release -DPARLAY_CILK=1 -DPARLAY_BENCHMARK=On -DCMAKE_CXX_COMPILER=$CXX -DCMAKE_CXX_FLAGS_RELEASE="-O3 -DNDEBUG -DPARLAY_CILK=1 -fopencilk" -DCMAKE_CXX_LINKER_FLAGS="-fopencilk" ../..`
+- `mkdir build/Release && cd build/Release`
+- `../../../cmake-3.20.0-linux-x86_64/bin/cmake -DCMAKE_BUILD_TYPE=Release -DPARLAY_CILK=1 -DPARLAY_BENCHMARK=On -DCMAKE_CXX_COMPILER=$CXX -DCMAKE_CXX_FLAGS_RELEASE="-O3 -DNDEBUG -DPARLAY_CILK=1 -fopencilk" -DCMAKE_CXX_LINKER_FLAGS="-fopencilk" ../..`
+- `CILK_NWORKERS=8 ./benchmark/bench_standard`
+
 
 make sure to download cmake 3.20
