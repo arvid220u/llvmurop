@@ -1,16 +1,12 @@
 using namespace std;
 #include <vector>
-#include <cilk/cilk.h>
 #include <iostream>
-#include <unordered_set>
-#include <string>
 
 int functionwithuniquename(vector<int> v) {
-    int sum = 0;
-    cilk_for (int x : v) {
-        sum+=x;
+    for (int x : v) {
+        cout << x << endl;
     }
-    return sum;
+    return 0;
 }
 
 int main()

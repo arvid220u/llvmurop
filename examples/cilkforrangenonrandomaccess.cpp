@@ -2,12 +2,10 @@ using namespace std;
 #include <vector>
 #include <cilk/cilk.h>
 #include <iostream>
+#include <unordered_set>
 
-int functionwithuniquename(vector<int> v) {
-    /*cilk_for (int i = 0; i < v.size(); i++) {
-        cout << v[i] << endl;
-    }*/
-    for (int x : v) {
+int functionwithuniquename(unordered_set<int> s) {
+    cilk_for (auto x : s) {
         cout << x << endl;
     }
     return 0;
@@ -20,7 +18,8 @@ int main()
     for (int i = 0; i < N; i++) {
         v[i] = i;
     }
-    int x = functionwithuniquename(v);
+    unordered_set<int> s(v.begin(), v.end());
+    int x = functionwithuniquename(s);
 
     return 0;
 }
