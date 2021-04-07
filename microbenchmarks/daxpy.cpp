@@ -1,8 +1,10 @@
 using namespace std;
 #include <vector>
-#include <cilk/cilk.h>
+//#include <cilk/cilk.h>
 #include <iostream>
 #include "fasttime.h"
+
+#define cilk_for for
 
 void daxpy_forrange(vector<pair<double, double>> yx, double a) {
     cilk_for (auto &yxi : yx) {
@@ -15,10 +17,9 @@ void daxpy_for(vector<pair<double, double>> yx, double a) {
     }
 }
 
-void daxpy_test(void (*f)(vector<pair<double, double>>, double), string desc) {
-    cout << "RUNNING TEST: " << desc << endl;
+void daxpy_test(void (*f)(vector<pair<double, double>>, double), string desc, int N) {
+    cout << "RUNNING TEST: " << desc << " (" << N << " iters)" << endl;
 
-    int N = 64;
     vector<pair<double, double>> v(N);
     for (int i = 0; i < N; i++) {
         v[i] = make_pair(double(rand()), double(rand()));
@@ -46,11 +47,17 @@ int main()
 {
     srand(time(0));
 
-#ifdef FORRANGE
-    daxpy_test(daxpy_forrange, "daxpy_forrange");
-#else
-    daxpy_test(daxpy_for, "daxpy_for");
-#endif
+    int N;
+    cin >> N;
+
+    string kind;
+    cin >> kind;
+
+    if (kind.find("range") != string::npos) {
+        daxpy_test(daxpy_forrange, "daxpy_forrange", N);
+    } else {
+        daxpy_test(daxpy_for, "daxpy_for", N);
+    }
 
     return 0;
 }
