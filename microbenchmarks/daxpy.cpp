@@ -1,10 +1,8 @@
 using namespace std;
 #include <vector>
-//#include <cilk/cilk.h>
+#include <cilk/cilk.h>
 #include <iostream>
 #include "fasttime.h"
-
-#define cilk_for for
 
 void daxpy_forrange(vector<pair<double, double>> yx, double a) {
     cilk_for (auto &yxi : yx) {
