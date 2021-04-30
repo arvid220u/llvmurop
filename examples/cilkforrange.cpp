@@ -2,11 +2,10 @@ using namespace std;
 #include <vector>
 #include <cilk/cilk.h>
 #include <iostream>
+#include <string>
 
 int functionwithuniquename(vector<int> v) {
-    cilk_for (int x : v) {
-        cout << x << endl;
-    }
+    cilk_for (int x : v);
     return 0;
 }
 

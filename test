@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd ../opencilk-project/build
+make clang-test -j 16
