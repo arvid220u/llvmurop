@@ -5,7 +5,9 @@ using namespace std;
 #include <string>
 
 int functionwithuniquename(vector<int> v) {
-    cilk_for (int x : v);
+    cilk_for (int x : v) {
+        cout << x << endl;
+    }
     return 0;
 }
 

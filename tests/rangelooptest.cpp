@@ -66,7 +66,7 @@ int range_pragma_tests(int n) {
     foo(i);
 
 #pragma cilk grainsize 4
-  _Cilk_for (auto i : v)
+  _Cilk_for (int i : {1,2,3})
     foo(i);
 
 #pragma cilk grainsize = 4 \
